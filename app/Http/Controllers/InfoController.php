@@ -17,16 +17,21 @@ class InfoController extends Controller
 
 
 
-
         $data = [
             'route' => self::route(),
             'date' => date('Y-m-d H:i:s'),
             'env' =>self::env(),
             'about' => self::about(),
             'list' => self::list(),
+            'server_ip'  => self::server_ip()
         ];
 
         dd($data);
+    }
+
+     static function server_ip()
+    {
+        return $_SERVER['SERVER_ADDR']; 
     }
 
     static function list()
